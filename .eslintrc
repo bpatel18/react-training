@@ -1,0 +1,8 @@
+{
+  "extends": "airbnb",
+  "plugins": ["react", "mocha"],
+  "rules": {
+    "comma-dangle": [2, "never"],
+    "react/prop-types":[1,{}]
+  }
+}
