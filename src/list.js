@@ -19,6 +19,7 @@ class List extends React.Component {
     this.todos.push(value);
     this.setState(this.todos);
   }
+  
 }
 
 export default List;

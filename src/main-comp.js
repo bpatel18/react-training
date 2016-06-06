@@ -22,7 +22,6 @@ class MainComp extends React.Component {
   addToList(value) {
     this.refs.todos.addToList(value);
   }
-
 }
 
 export default MainComp;

@@ -15,6 +15,7 @@ class InputComp extends React.Component {
     //alert(this.refs.inp.value);
     this.props.buttonClick(this.refs.inp.value);
   }
+  
 }
 
 export default InputComp;
