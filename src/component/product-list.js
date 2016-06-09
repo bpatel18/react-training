@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 let ProductList = ({ productslist }) => {
     let prodList = productslist.map((product, index) => {
-        return <Product key={index} productid={index} name={product.name} price={product.price} quantity={product.quantity} image={product.image} />
+        return <Product key={index} productid={index} name={product.name} price={product.price} quantity={product.quantity} image={product.image}/>
     });
     return (<div>
         <h3>Product List</h3>

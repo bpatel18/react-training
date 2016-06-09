@@ -64,6 +64,42 @@ export default (state = { products: []}, action) => {
             } else {
                 return state;
             }
+        case 'ADD_QNT_TO_CART':
+            if (action.value.quantity !== 0) {
+                if (index === -1) {
+                    if(action.value.quantity >= action.txtQnt) {
+                        return Object.assign({}, state, {
+                                products: [...state.products, Object.assign({}, action.value,
+                                    {quantity: action.txtQnt, amount: (action.value.price * action.txtQnt)})]
+                            },
+                            {amount: state.amount === undefined ? (action.value.price * action.txtQnt) :
+                                                                  state.amount + (action.value.price * action.txtQnt)}
+                        );
+                    } else {
+                        return state;
+                    }
+                } else {
+                    if(action.value.quantity >= action.txtQnt) {
+                        return Object.assign({}, state, {
+                                products: [...state.products.slice(0, index),
+                                    Object.assign({}, action.value,
+                                        {
+                                            quantity: state.products[index].quantity + (action.txtQnt * 1),
+                                            amount: action.value.price * (state.products[index].quantity + (action.txtQnt * 1))
+                                        }
+                                    ),
+                                    ...state.products.slice(index + 1)
+                                ]
+                            },
+                            {amount : state.amount + (action.value.price * action.txtQnt)}
+                        );
+                    } else {
+                        return state;
+                    }
+                }
+            } else {
+                return state;
+            }
         case 'REMOVE_FROM_CART':
             if (action.value.quantity > 1) {
                 return Object.assign({}, state, {

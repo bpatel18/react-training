@@ -32,6 +32,20 @@ export default (state = [], action) => {
             } else {
               return state;
             }
+        case 'ADD_QNT_TO_CART':
+            if(state[index].quantity !== 0) {
+                if(state[index].quantity >= action.txtQnt) {
+                    return [...state.slice(0,index),
+                        Object.assign({}, state[index], {quantity: state[index].quantity - action.txtQnt}),
+                        ...state.slice(index + 1)
+                    ];
+                } else {
+                    alert("Sorry!!!");
+                    return state;
+                }
+            } else {
+              return state;
+            }
         case 'REMOVE_FROM_CART':
             return [...state.slice(0, index),
                 Object.assign({}, state[index], {quantity: state[index].quantity + 1}),

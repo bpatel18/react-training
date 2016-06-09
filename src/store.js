@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import products from './reducers/products-reducer';
 import carts from './reducers/cart-reducer';
 import ac from './images/ac.JPG';
-import freeze from './images/freeze.JPG';
+import freezer from './images/freezer.JPG';
 import cooler from './images/cooler.JPG';
 import tv from './images/tv.JPG';
 import laptop from './images/laptop.JPG';
@@ -19,10 +19,10 @@ let state = {
             image: ac
         },
         {
-            name: "Freeze",
+            name: "Freezer",
             price: 10000,
             quantity: 10,
-            image: freeze
+            image: freezer
         },
         {
             name: "Cooler",
