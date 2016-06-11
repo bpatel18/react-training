@@ -84,8 +84,8 @@ export default (state = { products: []}, action) => {
                                 products: [...state.products.slice(0, index),
                                     Object.assign({}, action.value,
                                         {
-                                            quantity: state.products[index].quantity + (action.txtQnt * 1),
-                                            amount: action.value.price * (state.products[index].quantity + (action.txtQnt * 1))
+                                            quantity: state.products[index].quantity + parseInt(action.txtQnt),
+                                            amount: action.value.price * (state.products[index].quantity + parseInt(action.txtQnt))
                                         }
                                     ),
                                     ...state.products.slice(index + 1)

@@ -14,7 +14,7 @@ let Product = (props) => {
         <button style={{borderRadius:'5px'}} onClick={() => { props.addToCart(product); } }>Add Product</button><br/><br/>
         <button style={{borderRadius:'5px'}} onClick={() => { props.addAllQntToCart(product); } }>Add All Product</button><br/><br/>
         Quantity: <input type="text" style={{width:'25'}} ref={(node) => { inpNode = node; }}/><br/>
-        <button style={{borderRadius:'5px'}} onClick={() => { props.addQntToCart(product, inpNode.value); } }>Add Products</button>
+        <button style={{borderRadius:'5px'}} onClick={() => { props.addQntToCart(product, inpNode.value); inpNode.value=''; } }>Add Products</button>
       </div>
     );
 };
