@@ -67,10 +67,10 @@ export default (state = { products: []}, action) => {
         case 'ADD_QNT_TO_CART':
             if (action.value.quantity !== 0) {
                 if (index === -1) {
-                    if(action.value.quantity >= action.txtQnt) {
+                    if(action.value.quantity >= action.txtQnt && action.txtQnt !== "") {
                         return Object.assign({}, state, {
                                 products: [...state.products, Object.assign({}, action.value,
-                                    {quantity: action.txtQnt, amount: (action.value.price * action.txtQnt)})]
+                                    {quantity: parseInt(action.txtQnt), amount: (action.value.price * action.txtQnt)})]
                             },
                             {amount: state.amount === undefined ? (action.value.price * action.txtQnt) :
                                                                   state.amount + (action.value.price * action.txtQnt)}
@@ -79,7 +79,7 @@ export default (state = { products: []}, action) => {
                         return state;
                     }
                 } else {
-                    if(action.value.quantity >= action.txtQnt) {
+                    if(action.value.quantity >= action.txtQnt && action.txtQnt !== "") {
                         return Object.assign({}, state, {
                                 products: [...state.products.slice(0, index),
                                     Object.assign({}, action.value,

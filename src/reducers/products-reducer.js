@@ -34,7 +34,7 @@ export default (state = [], action) => {
             }
         case 'ADD_QNT_TO_CART':
             if(state[index].quantity !== 0) {
-                if(state[index].quantity >= action.txtQnt) {
+                if(state[index].quantity >= action.txtQnt && action.txtQnt !== "") {
                     return [...state.slice(0,index),
                         Object.assign({}, state[index], {quantity: state[index].quantity - action.txtQnt}),
                         ...state.slice(index + 1)
